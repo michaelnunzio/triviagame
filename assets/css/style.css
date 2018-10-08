@@ -1,0 +1,35 @@
+/* body {
+    background-image: url(/assets/images/architechture1.jpg);
+    
+} */
+
+.HYPE {
+    background: red;
+    color: white;
+    border: 3px black solid;
+    text-align: center;
+    font-family: "Futura";
+    margin-bottom: 10px;
+    
+}
+
+.TimeRem {
+    text-align: center;
+    margin: 5px 0 20px 0;
+}
+
+.questionA{
+    text-align: center;
+    margin: 5px 0 20px 0;
+}
+
+.B1 {
+    text-align: center;
+    margin: 5px;
+}
+
+.card {
+    background:lightgrey;
+    border: black 3px solid;
+}
+
