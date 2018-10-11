@@ -8,9 +8,12 @@ var answers= "";
 var correctAnswer= "";
 var right= 0;
 var wrong= 0;
+var i = 0;
+var userChoice= "";
+
+
 
 //******Array of Questions to ask with answers **********/
-
 
 var questionsToAsk = [
 
@@ -78,67 +81,200 @@ answers: {
 
 correctAnswer: "Nike"
 }, //Q5 End
+
+{ //Q6 which is technically the game over screen
+    question: "Game Over! You had " + right + " right, and " + wrong + " wrong!",
     
-
+    
+    }, //Q5 End
+    
 ];
-// console.log(questionsToAsk);
-
-for (var i = 0; i < questionsToAsk.length; i++) {
-    $(".questionA").html(questionsToAsk[i].question) 
-    $(".Button1").html(questionsToAsk[i].answers.A)
-    $(".Button2").html(questionsToAsk[i].answers.B)
-    $(".Button3").html(questionsToAsk[i].answers.C)
-    $(".Button4").html(questionsToAsk[i].answers.D)
-    console.log(i)
-}
-
-//*****Put IN HTML*******/
-
-//***********Question1*********/
+console.log("please work: "+ questionsToAsk[i].correctAnswer);
 
 
 
-//****Correct Click Functions *****/
+//*******Puts the questions into the div*******/
 
-// function youRight() {
-//     right++;
-//      console.log("right: " +right);
-// }
 
-// function youWrong() {
-//     wrong++;
-//     console.log("wrong: " +wrong);
-// }
+        $(".questionA").text(questionsToAsk[i].question) 
+        $(".Button1").text(questionsToAsk[i].answers.A)
+        $(".Button2").text(questionsToAsk[i].answers.B)
+        $(".Button3").text(questionsToAsk[i].answers.C)
+        $(".Button4").text(questionsToAsk[i].answers.D)
+        debugger;
+        $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
+        $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
+        $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
+        $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
+        debugger;
+        console.log(questionsToAsk[i]);
+        
 
- 
+
+
 
 //************** On click functions ***************/
+//Tell Will the Onclicks will roll the answers forward but not the text
+
+    $(".Button1").on("click", function() {
+        var btn1 = $(".Button1").attr("data-answer")
+        console.log(btn1)
+        console.log(questionsToAsk[i].correctAnswer)
+        if(btn1=== questionsToAsk[i].correctAnswer){
+            right++;
+            console.log("Right: " + right)
+            i++
+            change()
+        }
+        else{
+            wrong++
+            console.log("Wrong: " + wrong)
+            i++
+            change()
+            
+        }
+      
+    
+    })
+
+    $(".Button2").on("click", function() {
+        var btn2 = $(".Button2").attr("data-answer")
+        console.log(questionsToAsk[i].answers.B)
+        if(btn2=== questionsToAsk[i].correctAnswer){
+            right++;
+            console.log("Right: " + right)
+            i++
+            change()
+        }
+        else{
+            wrong++
+            console.log("Wrong: " + wrong)
+            i++
+            change()
+        }
+      
+
+    })
+
+    $(".Button3").on("click", function() {
+        var btn3 = $(".Button3").attr("data-answer")
+        console.log(questionsToAsk[i].answers.C)
+        if(btn3=== questionsToAsk[i].correctAnswer){
+            right++;
+            console.log("Right: " + right)
+            i++
+            change()
+        }
+        else{
+            wrong++
+            console.log("Wrong: " + wrong)
+            i++
+            change()
+        }
+        
+    })
+
+    $(".Button4").on("click", function() {
+        var btn4 = $(".Button4").attr("data-answer")
+        console.log(questionsToAsk[i].answers.D)
+        if(btn4=== questionsToAsk[i].correctAnswer){
+            right++;
+            console.log("Right: " + right)
+            i++
+            change()
+          
+        }
+        else{
+            wrong++
+            console.log("Wrong: " + wrong)
+            i++
+            change()   
+        }
+
+    })
+
+//****Move them forward***** */ could deff use a forloop
+// it works just has to be clicked twice
+    function change () {
+        console.log("i: " + i);
+        console.log(questionsToAsk[i])
+        if (i==0) {
+            $(".questionA").text(questionsToAsk[i].question) 
+            $(".Button1").text(questionsToAsk[i].answers.A)
+            $(".Button2").text(questionsToAsk[i].answers.B)
+            $(".Button3").text(questionsToAsk[i].answers.C)
+            $(".Button4").text(questionsToAsk[i].answers.D)
+            $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
+            $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
+            $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
+            $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
+        }
+        if(i==1){
+            $(".questionA").text(questionsToAsk[i].question) 
+            $(".Button1").text(questionsToAsk[i].answers.A)
+            $(".Button2").text(questionsToAsk[i].answers.B)
+            $(".Button3").text(questionsToAsk[i].answers.C)
+            $(".Button4").text(questionsToAsk[i].answers.D)
+            $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
+            $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
+            $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
+            $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
+
+        }
+        if(i==2){
+            $(".questionA").text(questionsToAsk[i].question) 
+            $(".Button1").text(questionsToAsk[i].answers.A)
+            $(".Button2").text(questionsToAsk[i].answers.B)
+            $(".Button3").text(questionsToAsk[i].answers.C)
+            $(".Button4").text(questionsToAsk[i].answers.D)
+            $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
+            $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
+            $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
+            $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
 
 
-    // $(".Button1").on("click", function() {
-    //     console.log(questionsToAsk[1].answers.A)
-    // })
-
-    // $(".Button2").on("click", function() {
-    //     console.log(questionsToAsk[1].answers.B)
-    // })
-
-    // $(".Button3").on("click", function() {
-    //     console.log(questionsToAsk[1].answers.C)
-    // })
-
-    // $(".Button4").on("click", function() {
-    //     console.log(questionsToAsk[1].answers.D)
-    // })
-
-  
+        }
+        if(i==3){
+            $(".questionA").text(questionsToAsk[i].question) 
+            $(".Button1").text(questionsToAsk[i].answers.A)
+            $(".Button2").text(questionsToAsk[i].answers.B)
+            $(".Button3").text(questionsToAsk[i].answers.C)
+            $(".Button4").text(questionsToAsk[i].answers.D)
+            $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
+            $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
+            $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
+            $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
 
 
+        }
+        if(i==4){
+            $(".questionA").text(questionsToAsk[i].question) 
+            $(".Button1").text(questionsToAsk[i].answers.A)
+            $(".Button2").text(questionsToAsk[i].answers.B)
+            $(".Button3").text(questionsToAsk[i].answers.C)
+            $(".Button4").text(questionsToAsk[i].answers.D)
+            $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
+            $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
+            $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
+            $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
 
+        }
+        if(i==5){
+        $(".questionA").text(questionsToAsk[i].question) 
+        gameEnd();
+        }
+    }
+
+    function gameEnd () {
+        if(questionsToAsk[5]===questionsToAsk[5]){
+            $(".questionA").text(questionsToAsk[i].question) 
+            $(".Button1").hide()
+            $(".Button2").hide()
+            $(".Button3").hide()
+            $(".Button4").hide()
+        }
+    }
     //*********Function Calls**********/ 
     
-    
-
+    // nextQ();
 });
-
-
