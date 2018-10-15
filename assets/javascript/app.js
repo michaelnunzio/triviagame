@@ -94,24 +94,17 @@ console.log("please work: "+ questionsToAsk[i].correctAnswer);
 
 
 //*******Puts the questions into the div*******/
-
-
         $(".questionA").text(questionsToAsk[i].question) 
         $(".Button1").text(questionsToAsk[i].answers.A)
         $(".Button2").text(questionsToAsk[i].answers.B)
         $(".Button3").text(questionsToAsk[i].answers.C)
         $(".Button4").text(questionsToAsk[i].answers.D)
-        debugger;
         $(".Button1").attr("data-answer", questionsToAsk[i].answers.A);
         $(".Button2").attr("data-answer", questionsToAsk[i].answers.B);
         $(".Button3").attr("data-answer", questionsToAsk[i].answers.C);
         $(".Button4").attr("data-answer", questionsToAsk[i].answers.D);
-        debugger;
         console.log(questionsToAsk[i]);
         
-
-
-
 
 //************** On click functions ***************/
 //Tell Will the Onclicks will roll the answers forward but not the text
