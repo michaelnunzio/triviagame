@@ -4,7 +4,8 @@ body {
 }
 
 .HYPE {
-    background:linear-gradient(red, grey);/*rgb(226, 10, 10);*/
+    background:linear-gradient(red, purple, black);
+    opacity: 0.8;
     color: white;
     border: 3px black solid;
     text-align: center;
@@ -30,11 +31,12 @@ body {
 }
 
 .card {
-    background:lightgrey;
+    background: linear-gradient(grey,white,black);
     border: black 3px solid;
+    padding:100px;
 }
 
 .answer-button{
-    color: red;
+    color: rgb(177, 48, 177);
 }
 
